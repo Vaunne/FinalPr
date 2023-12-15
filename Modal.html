@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="card-text-center">
+  <div class="card-header">
+    Welcome Card
+  </div>
+  <div class="card-body" id="updatecontent0">
+     <h1 class="card-title"></h1>
+  </div>
+  <div class="card-body" id="updatecontent1">
+     <h1 class="card-title">Welcome to my Website!</h1>
+  </div>
+  <div class="card-body" id="updatecontent2">
+     <p class="card-text">Register user here!</p>
+  </div>
+
+
+  <div class="card-footer text-muted" id="updatefooter">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" >Register</button>
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Register</h4>
+        </div>
+        <div class="modal-body">
+          <label for="name"><b>Name</b></label>
+          <br>
+          <input type="text" placeholder="Enter Name" name="Names" id="Names" required>
+          <br>
+
+          <label for="section"><b>Section</b></label>
+          <br>
+          <input type="text" placeholder="Enter Section" name="Sections" id="Sections" required>
+          <br>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="update()">Save changes</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  </div> 
+</div>
+
+
+<style>
+.card-header{
+  padding: 10px 0px 10px 10px;
+  background-color: lightgrey;
+}
+.card-footer{
+  padding: 5px 0px 5px 30px;
+  background-color: lightgrey;
+}
+.card-body{
+  margin-left: 10px
+}
+.card-text-center{
+  border: 2px solid grey;
+  border-radius: 10px;
+}
+.btn{
+  width: 98%;
+  background-color: #4949FF;
+  color: white;
+}
+.modal-footer{
+  display: flex;
+}
+input[type=text], input[type=password] {
+  width: 100%;
+}
+</style>
+
+
+<script>
+function update(){
+  var Names = document.getElementById('Names').value;
+  var Sections = document.getElementById('Sections').value;
+
+  document.getElementById('updatecontent0').innerText = 'You have Successfully registered.';
+  document.getElementById('updatecontent1').innerText = Names;
+  document.getElementById('updatecontent2').innerText = Sections;
+  document.getElementById('start').innerText = "hello";
+}
+}
+</script>
