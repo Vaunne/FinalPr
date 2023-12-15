@@ -1,0 +1,156 @@
+<style>
+.dropdown {
+display: none;
+}
+
+.dropdown.visible {
+display: block;
+}
+
+table {
+border-collapse: collapse;
+width: 100%;
+}
+table, th, td {
+border: 1px solid black;
+}
+</style>
+
+<h2 style="text-align: Center">Input Records</h2>
+Name:
+<input type="text" id="name" placeholder="Name">
+<br>
+  
+<label for="course">Course:</label>  
+  <select id="courseDropdown" onchange="handlecourseDropdownChange()">
+  <option value="">Select a Course</option>
+  <option value="BSIT">BSIT</option>
+  <option value="BSCS">BSCS</option>
+  <option value="BSDA">BSDA</option>
+  <option value="BSMMA">BSMMA</option>
+  </select>
+  
+<br>
+<label for="section">Section:</label>
+  <select id="Sections1Dropdown" onchange="handleSection1DropdownChange()">
+  <option value="">Select a Section</option>
+  <option value="BSIT-1A">BSIT-1A</option>
+  <option value="BSIT-1B">BSIT-1B</option>
+  <option value="BSIT-1C">BSIT-1C</option>
+  <option value="BSIT-2A">BSIT-2A</option>
+  <option value="BSIT-2B">BSIT-2B</option>
+  <option value="BSIT-2C">BSIT-2C</option>
+  <option value="BSIT-3A">BSIT-3A</option>
+  <option value="BSIT-3B">BSIT-3B</option>
+  <option value="BSIT-3C">BSIT-3C</option>
+  </select>
+
+  <select id="Sections2Dropdown" onchange="handleSection2DropdownChange()">
+  <option value="">Select a Section</option>
+  <option value="BSCS-1A">BSCS-1A</option>
+  <option value="BSCS-1B">BSCS-1B</option>
+  <option value="BSCS-1C">BSCS-1C</option>
+  <option value="BSCS-2A">BSCS-2A</option>
+  <option value="BSCS-2B">BSCS-2B</option>
+  <option value="BSCS-2C">BSCS-2C</option>
+  <option value="BSCS-3A">BSCS-3A</option>
+  <option value="BSCS-3B">BSCS-3B</option>
+  <option value="BSCS-3C">BSCS-3C</option>
+  </select>
+
+  <select id="Sections3Dropdown" onchange="handleSection3DropdownChange()">
+  <option value="">Select a Section</option>
+  <option value="BSDA-1A">BSDA-1A</option>
+  <option value="BSDA-1B">BSDA-1B</option>
+  <option value="BSDA-1C">BSDA-1C</option>
+  <option value="BSDA-2A">BSDA-2A</option>
+  <option value="BSDA-2B">BSDA-2B</option>
+  <option value="BSDA-2C">BSDA-2C</option>
+  <option value="BSDA-3A">BSDA-3A</option>
+  <option value="BSDA-3B">BSDA-3B</option>
+  <option value="BSDA-3C">BSDA-3C</option>
+  </select>
+
+  <select id="Sections4Dropdown"  onchange="handleSection4DropdownChange()">
+  <option value="">Select a Section</option>
+  <option value="BSMMA-1A">BSMMA-1A</option>
+  <option value="BSMMA-1B">BSMMA-1B</option>
+  <option value="BSMMA-1C">BSMMA-1C</option>
+  <option value="BSMMA-2A">BSMMA-2A</option>
+  <option value="BSMMA-2B">BSMMA-2B</option>
+  <option value="BSMMA-2C">BSMMA-2C</option>
+  <option value="BSMMA-3A">BSMMA-3A</option>
+  <option value="BSMMA-3B">BSMMA-3B</option>
+  <option value="BSMMA-3C">BSMMA-3C</option>
+  </select>
+<br>
+<button onclick="saveRecord()">Save Record</button>
+
+<div>
+<h2>Records</h2>
+<table id="recordTable">
+<tr>
+<th>Name</th>
+<th>Course</th>
+<th>Section</th>
+<th>Actions</th>
+</tr>
+</table>
+</div>
+
+<script>
+  javascript
+function handlecourseDropdownChange() {
+const courseSelection = document.getElementById('courseDropdown').value;
+
+if (courseSelection === 'BSIT') {
+document.getElementById('Sections1Dropdown').style.display = 'block';
+document.getElementById('Sections2Dropdown').style.display = 'none';
+document.getElementById('Sections3Dropdown').style.display = 'none';
+document.getElementById('Sections4Dropdown').style.display = 'none';
+} else if (courseSelection === 'BSCS') {
+document.getElementById('Sections1Dropdown').style.display = 'none';
+document.getElementById('Sections2Dropdown').style.display = 'block';
+document.getElementById('Sections3Dropdown').style.display = 'none';
+document.getElementById('Sections4Dropdown').style.display = 'none';
+} else if (courseSelection === 'BSDA') {
+document.getElementById('Sections1Dropdown').style.display = 'none';
+document.getElementById('Sections2Dropdown').style.display = 'none';
+document.getElementById('Sections3Dropdown').style.display = 'block';
+document.getElementById('Sections4Dropdown').style.display = 'none';
+}else if (courseSelection === 'BSMMA') {
+document.getElementById('Sections1Dropdown').style.display = 'none';
+document.getElementById('Sections2Dropdown').style.display = 'none';
+document.getElementById('Sections3Dropdown').style.display = 'none';
+document.getElementById('Sections4Dropdown').style.display = 'block';
+}else {
+document.getElementById('Sections1Dropdown').style.display = 'none';
+document.getElementById('Sections2Dropdown').style.display = 'none';
+document.getElementById('Sections3Dropdown').style.display = 'none';
+document.getElementById('Sections4Dropdown').style.display = 'none';
+}
+}
+
+function saveRecord() {
+var name = document.getElementById('name').value;
+var course = document.getElementById('courseDropdown').value;
+var section = document.getElementById('Sections1Dropdown').value;
+
+
+var table = document.getElementById('recordTable');
+var row = table.insertRow(-1);
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
+var cell4 = row.insertCell(3);
+cell1.innerHTML = name;
+cell2.innerHTML = course;
+cell3.innerHTML = section;
+cell4.innerHTML = "<button onclick='deleteRow(this)'>DELETE</button>";
+}
+
+function deleteRow(row) {
+var i = row.parentNode.parentNode.rowIndex;
+document.getElementById('recordTable').deleteRow(i);
+}
+</script>  

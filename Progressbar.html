@@ -1,0 +1,42 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS Bootstrap Progress Bar</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>.btn-group{
+padding: 25px 0px 0px;
+left:45%;
+}
+
+.progress{
+margin-left: 100px;
+margin-right: 100px;
+margin-top: 10px;
+}
+
+.progress-bar{
+  width:0%;
+}</style>
+</head>
+  
+<body>
+  <div class="progress">
+    <div class="progress-bar bg-success" role="progressbar"></div>
+  </div>   
+  
+  <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <button type="button" onclick="updateProgress(33)" class="btn btn-outline-success">33%
+      </button>
+      <button type="button" onclick="updateProgress(66)" class="btn btn-outline-success">66% 
+      </button>
+      <button type="button" onclick="updateProgress(100)" class="btn btn-outline-success">100%
+      </button>
+  </div>
+ <script>
+   function updateProgress(percentage) {
+      $('.progress-bar').css('width', percentage + '%');
+    }</script>
+ </body>
+</html>
